@@ -30,6 +30,11 @@ npx remotion render ProductoReel out/airpods.mp4 --props='{"producto":"AirPods P
 
 Las props que no pases toman el valor por defecto.
 
+## Marca
+
+- Logo: `public/marca/logo-tecno.png` (recortado de la foto de perfil de la página de Facebook Tecno Riv).
+- Colores: fondo `#0A1626` (azul noche), acento `#2D9CFF` (azul eléctrico del glow del logo), blanco para texto.
+
 ## Licencia
 
 Remotion es gratis para equipos de hasta 3 personas. Más grande → licencia paga (remotion.pro/license).

@@ -16,8 +16,10 @@ import {
 export const productoReelSchema = z.object({
   gancho: z.string(),
   producto: z.string(),
-  // Ruta dentro de /public (ej: "productos/smartwatch.png"). Vacío = ilustración genérica.
+  // Ruta dentro de /public (ej: "productos/smartwatch.jpg"). Vacío = ilustración genérica.
   imagen: z.string(),
+  // Logo de la marca dentro de /public. Vacío = sin logo.
+  logo: z.string(),
   beneficios: z.array(z.string()).max(3),
   precio: z.string(),
   detallePago: z.string(),
@@ -166,7 +168,12 @@ const Producto: React.FC<{
   const flotar = Math.sin(frame / 15) * 14;
   return (
     <AbsoluteFill
-      style={{ justifyContent: "center", alignItems: "center", gap: 90 }}
+      style={{
+        justifyContent: "center",
+        alignItems: "center",
+        gap: imagen ? 60 : 90,
+        paddingTop: 80,
+      }}
     >
       <div
         style={{
@@ -174,10 +181,26 @@ const Producto: React.FC<{
         }}
       >
         {imagen ? (
-          <Img
-            src={staticFile(imagen)}
-            style={{ width: 760, height: 760, objectFit: "contain" }}
-          />
+          <div
+            style={{
+              width: 780,
+              height: 1040,
+              borderRadius: 56,
+              overflow: "hidden",
+              border: `6px solid ${acento}`,
+              boxShadow: `0 0 90px ${acento}88`,
+            }}
+          >
+            <Img
+              src={staticFile(imagen)}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                transform: `scale(${1.05 + frame / 900})`,
+              }}
+            />
+          </div>
         ) : (
           <IlustracionReloj acento={acento} />
         )}
@@ -186,7 +209,7 @@ const Producto: React.FC<{
         style={{
           fontFamily: FONT,
           fontWeight: 800,
-          fontSize: 92,
+          fontSize: imagen ? 80 : 92,
           color: "white",
           textAlign: "center",
           padding: "0 80px",
@@ -268,8 +291,9 @@ const Cierre: React.FC<{
   cta: string;
   whatsapp: string;
   instagram: string;
+  logo: string;
   acento: string;
-}> = ({ precio, detallePago, cta, whatsapp, instagram, acento }) => {
+}> = ({ precio, detallePago, cta, whatsapp, instagram, logo, acento }) => {
   const precioEntrada = useEntrada();
   const ctaEntrada = useEntrada(30);
   const frame = useCurrentFrame();
@@ -284,6 +308,11 @@ const Cierre: React.FC<{
         textAlign: "center",
       }}
     >
+      {logo ? (
+        <div style={{ opacity: ctaEntrada }}>
+          <Logo src={logo} ancho={620} acento={acento} />
+        </div>
+      ) : null}
       <div
         style={{
           transform: `scale(${precioEntrada})`,
@@ -295,9 +324,11 @@ const Cierre: React.FC<{
         <div style={{ fontSize: 170, fontWeight: 900, color: acento }}>
           {precio}
         </div>
-        <div style={{ fontSize: 52, fontWeight: 600, color: "#d6d6dc" }}>
-          {detallePago}
-        </div>
+        {detallePago ? (
+          <div style={{ fontSize: 52, fontWeight: 600, color: "#d6d6dc" }}>
+            {detallePago}
+          </div>
+        ) : null}
       </div>
       <div
         style={{
@@ -329,6 +360,21 @@ const Cierre: React.FC<{
     </AbsoluteFill>
   );
 };
+
+const Logo: React.FC<{ src: string; ancho: number; acento: string }> = ({
+  src,
+  ancho,
+  acento,
+}) => (
+  <Img
+    src={staticFile(src)}
+    style={{
+      width: ancho,
+      borderRadius: ancho / 40,
+      boxShadow: `0 0 ${ancho / 8}px ${acento}aa`,
+    }}
+  />
+);
 
 // Barra de progreso arriba, estilo historia de Instagram
 const Progreso: React.FC<{ acento: string }> = ({ acento }) => {
@@ -405,9 +451,17 @@ export const ProductoReel: React.FC<ProductoReelProps> = (props) => {
           cta={props.cta}
           whatsapp={props.whatsapp}
           instagram={props.instagram}
+          logo={props.logo}
           acento={props.colorAcento}
         />
       </Sequence>
+      {props.logo ? (
+        <Sequence durationInFrames={DURACION_REEL - ESCENAS.cierre}>
+          <AbsoluteFill style={{ alignItems: "center", top: 110 }}>
+            <Logo src={props.logo} ancho={300} acento={props.colorAcento} />
+          </AbsoluteFill>
+        </Sequence>
+      ) : null}
       <Progreso acento={props.colorAcento} />
     </AbsoluteFill>
   );

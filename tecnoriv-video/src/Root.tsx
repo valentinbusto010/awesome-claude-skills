@@ -25,21 +25,23 @@ export const RemotionRoot: React.FC = () => {
           width={1080}
           height={1920}
           defaultProps={{
-            gancho: "¿Seguís mirando la hora en el celu?",
-            producto: "Smartwatch Serie 9",
-            imagen: "",
+            gancho: "¿Smartwatch tipo Ultra a menos de $23 mil?",
+            producto: "Smartwatch Ultra Series 9",
+            imagen: "productos/ultra-series-9.jpg",
+            logo: "marca/logo-tecno.png",
             beneficios: [
-              "Notificaciones en tu muñeca",
-              "Monitor de salud 24/7",
-              "Batería para toda la semana",
+              "Envío gratis",
+              "30 días de garantía",
+              "Cargador magnético incluido",
             ],
-            precio: "$ 00.000",
-            detallePago: "Transferencia o efectivo",
+            precio: "$ 22.999",
+            detallePago: "",
             cta: "Pedilo por WhatsApp",
-            whatsapp: "Envíos en Río Cuarto",
+            whatsapp: "Tecno Riv · Río Cuarto",
             instagram: "@Tecno_riv",
-            colorAcento: "#00E0B8",
-            colorFondo: "#0B0B10",
+            // Colores sacados del logo de la página de Tecno Riv
+            colorAcento: "#2D9CFF",
+            colorFondo: "#0A1626",
           }}
         />
       </Folder>
