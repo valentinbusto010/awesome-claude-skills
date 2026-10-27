@@ -28,7 +28,7 @@ export const RemotionRoot: React.FC = () => {
             gancho: "¿Smartwatch tipo Ultra a menos de $23 mil?",
             producto: "Smartwatch Ultra Series 9",
             imagen: "productos/ultra-series-9.jpg",
-            logo: "marca/logo-tecno.png",
+            logo: "marca/logo-tecno-riv.png",
             beneficios: [
               "Envío gratis",
               "30 días de garantía",

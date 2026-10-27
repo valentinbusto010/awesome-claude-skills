@@ -32,7 +32,7 @@ Las props que no pases toman el valor por defecto.
 
 ## Marca
 
-- Logo: `public/marca/logo-tecno.png` (recortado de la foto de perfil de la página de Facebook Tecno Riv).
+- Logo: `public/marca/logo-tecno-riv.png` (cartel "TECNO" de la foto de perfil de Facebook + "riv" en Orbitron 700, azul de marca).
 - Colores: fondo `#0A1626` (azul noche), acento `#2D9CFF` (azul eléctrico del glow del logo), blanco para texto.
 
 ## Licencia

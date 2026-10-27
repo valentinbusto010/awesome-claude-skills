@@ -310,7 +310,7 @@ const Cierre: React.FC<{
     >
       {logo ? (
         <div style={{ opacity: ctaEntrada }}>
-          <Logo src={logo} ancho={620} acento={acento} />
+          <Logo src={logo} ancho={720} acento={acento} />
         </div>
       ) : null}
       <div
@@ -458,7 +458,7 @@ export const ProductoReel: React.FC<ProductoReelProps> = (props) => {
       {props.logo ? (
         <Sequence durationInFrames={DURACION_REEL - ESCENAS.cierre}>
           <AbsoluteFill style={{ alignItems: "center", top: 110 }}>
-            <Logo src={props.logo} ancho={300} acento={props.colorAcento} />
+            <Logo src={props.logo} ancho={360} acento={props.colorAcento} />
           </AbsoluteFill>
         </Sequence>
       ) : null}
