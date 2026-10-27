@@ -1,0 +1,11 @@
+{
+  "gancho": "¿Smartwatch nuevo por menos de $23 mil?",
+  "producto": "Smartwatch HW22",
+  "imagen": "productos/hw22.jpg",
+  "beneficios": [
+    "Envío gratis",
+    "30 días de garantía",
+    "Cargador magnético incluido"
+  ],
+  "precio": "$ 22.999"
+}

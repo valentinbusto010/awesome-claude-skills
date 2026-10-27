@@ -30,6 +30,14 @@ npx remotion render ProductoReel out/airpods.mp4 --props='{"producto":"AirPods P
 
 Las props que no pases toman el valor por defecto.
 
+Cada producto tiene su archivo en `props/` (foto, nombre, precio, beneficios). Para un producto nuevo: copiá uno, cambiá los datos y renderizá:
+
+```bash
+npx remotion render ProductoReel out/reel-hw22.mp4 --props=props/hw22.json
+```
+
+Si cambia el precio, editás una línea del JSON y volvés a renderizar.
+
 ## Marca
 
 - Logo: `public/marca/logo-tecno-riv.png` (cartel "TECNO" de la foto de perfil de Facebook + "riv" en Orbitron 700, azul de marca).
